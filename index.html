@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uz" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elyor Teacher — Ta'limiy Platforma</title>
+  <meta name="description" content="Elyor Teacher — kompyuter savodxonligi va prompt yozish ko‘nikmalarini o‘rganish uchun yaratilgan bepul ta’limiy platforma.">
+  <meta property="og:title" content="Elyor Teacher — Ta'limiy Platforma">
+  <meta property="og:description" content="Kompyuter savodxonligi va zamonaviy prompt yozishni o‘rganing. Bepul darslar va interaktiv testlar.">
+  <meta property="og:type" content="website">
+
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <!-- Brand Logo -->
+      <a class="brand-logo" id="brand-logo" href="#">
+        <div class="brand-icon-box">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+          </svg>
+        </div>
+        <div class="brand-text-col">
+          <span class="brand-title">Elyor Teacher</span>
+          <span class="brand-badge" data-i18n="brandBadge">Ta'limiy Platforma</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero" class="nav-link active" data-i18n="navHome">Bosh sahifa</a></li>
+        <li><a href="#courses" class="nav-link" data-i18n="navCourses">Kurslar</a></li>
+        <li><a href="#workspace" class="nav-link" data-i18n="navComp">Kompyuter</a></li>
+        <li><a href="#workspace" class="nav-link" data-i18n="navPrompt">Prompt yozish</a></li>
+        <li><a href="#quizzes" class="nav-link" data-i18n="navQuiz">Testlar</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="navAbout">Haqida</a></li>
+      </ul>
+
+      <!-- Nav Actions -->
+      <div class="nav-actions">
+        <!-- Progress Pill in Header -->
+        <div class="header-progress-pill" id="header-progress-pill">
+          <span>✓</span> <span>0 / 31 bajarildi</span>
+        </div>
+
+        <!-- Language Selector Dropdown -->
+        <div class="lang-dropdown-wrapper">
+          <button class="lang-select-btn" id="lang-select-btn" aria-label="Language selector">
+            <span id="current-lang-text">🇺🇿 UZ</span>
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div class="lang-select-menu" id="lang-select-menu">
+            <button class="lang-item active" data-lang="uz">🇺🇿 O'zbekcha</button>
+            <button class="lang-item" data-lang="en">🇬🇧 English</button>
+            <button class="lang-item" data-lang="ru">🇷🇺 Русский</button>
+          </div>
+        </div>
+
+        <!-- Dark / Light Mode Toggle -->
+        <button class="theme-toggle-btn" id="theme-toggle-btn" aria-label="Toggle theme" title="Toggle theme">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Open mobile navigation">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-menu" id="mobile-menu">
+    <a href="#hero" class="mobile-nav-link" data-i18n="navHome">Bosh sahifa</a>
+    <a href="#courses" class="mobile-nav-link" data-i18n="navCourses">Kurslar</a>
+    <a href="#workspace" class="mobile-nav-link" data-i18n="navComp">Kompyuter savodxonligi</a>
+    <a href="#workspace" class="mobile-nav-link" data-i18n="navPrompt">Prompt yozish</a>
+    <a href="#quizzes" class="mobile-nav-link" data-i18n="navQuiz">Testlar</a>
+    <a href="#about" class="mobile-nav-link" data-i18n="navAbout">Haqida</a>
+  </div>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero-section" id="hero">
+      <div class="container">
+        <div class="hero-badge" data-i18n="heroBadge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"></path>
+          </svg>
+          100% Bepul va Ochiq Ta'lim
+        </div>
+        <h1 class="hero-title">
+          <span>ELyor Teacher</span>
+        </h1>
+        <p class="hero-subtitle" data-i18n="heroSubtitle">
+          Kompyuter savodxonligi va zamonaviy prompt yozishni o‘rganing.
+        </p>
+        <p class="hero-desc" data-i18n="heroDesc">
+          Kompyuterdan to‘g‘ri foydalanish va AI vositalari uchun kuchli prompt yozish ko‘nikmalarini bosqichma-bosqich o‘rganing.
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary" id="hero-btn-start" data-i18n="btnStartLessons">
+            Darslarni boshlash
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+          <button class="btn btn-secondary" id="hero-btn-prompt" data-i18n="btnPromptCourse">
+            Prompt yozishni o‘rganish
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number">2</div>
+            <div class="stat-label" data-i18n="statCourses">To'liq kurs</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">31</div>
+            <div class="stat-label" data-i18n="statLessons">Amaliy dars</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">20+</div>
+            <div class="stat-label" data-i18n="statQuizzes">Test savoli</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">100%</div>
+            <div class="stat-label" data-i18n="statFree">Bepul va ochiq</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Container -->
+    <div class="container">
+      <!-- Overall Progress Dashboard -->
+      <section class="progress-dashboard" id="progress-dashboard">
+        <div class="progress-header">
+          <div class="progress-title-wrap">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary);">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span data-i18n="progressTitle">Sizning umumiy o'zlashtirish darajangiz</span>
+          </div>
+          <span class="progress-pct" id="progress-dash-pct">0%</span>
+        </div>
+        <div class="progress-track">
+          <div class="progress-fill" id="progress-dash-fill" style="width: 0%;"></div>
+        </div>
+        <div class="progress-stats-footer">
+          <span id="progress-dash-text">0 / 31 bajarildi</span>
+          <span>Elyor Teacher</span>
+        </div>
+      </section>
+
+      <!-- Courses Overview Section -->
+      <section class="section" id="courses">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="coursesSectionTag">Bizning Kurslarimiz</span>
+          <h2 class="section-title" data-i18n="coursesSectionTitle">Zamonaviy raqamli ko'nikmalar</h2>
+          <p class="section-desc" data-i18n="coursesSectionDesc">Noldan boshlab professional darajagacha bosqichma-bosqich o'rganing.</p>
+        </div>
+
+        <div class="courses-grid" id="courses-cards-container">
+          <!-- Dynamically populated via JS -->
+        </div>
+      </section>
+
+      <!-- Live Search Box -->
+      <div class="search-wrapper" id="search-container">
+        <svg class="search-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+        <input type="text" class="search-input" id="search-input" placeholder="Darslar, mavzular va promptlarni qidirish..." autocomplete="off">
+        <button class="search-clear-btn" id="search-clear-btn" aria-label="Clear search">✕</button>
+      </div>
+
+      <!-- Search Dropdown Results -->
+      <div class="search-results-box" id="search-results-box">
+        <div class="search-results-header">
+          <span data-i18n="searchResults">Qidiruv natijalari</span>
+        </div>
+        <ul class="search-results-list" id="search-results-list"></ul>
+      </div>
+
+      <!-- Interactive Learning Workspace -->
+      <section class="section" id="workspace" style="padding-top: 1rem;">
+        <div class="learning-workspace">
+          <!-- Sidebar: Course Switcher & Lesson List -->
+          <aside class="workspace-sidebar" id="workspace-sidebar">
+            <div class="sidebar-course-tabs">
+              <button class="course-tab-btn active" data-course="computer">
+                <span>💻</span>
+                <span data-i18n="course1Title">Kompyuter</span>
+              </button>
+              <button class="course-tab-btn" data-course="prompt">
+                <span>✨</span>
+                <span data-i18n="course2Title">Prompt yozish</span>
+              </button>
+            </div>
+            <div class="sidebar-lessons-header">
+              <span data-i18n="navCourses">Darslar</span>
+              <span id="sidebar-course-count"></span>
+            </div>
+            <ul class="sidebar-lessons-list" id="sidebar-lessons-list">
+              <!-- Dynamically populated via JS -->
+            </ul>
+          </aside>
+
+          <!-- Main Content: Active Lesson Reader -->
+          <article class="workspace-content" id="workspace-content">
+            <!-- Breadcrumbs -->
+            <div class="lesson-breadcrumb">
+              <span id="lesson-breadcrumb-course">Kompyuter savodxonligi</span>
+              <span>/</span>
+              <span id="lesson-breadcrumb-title" style="color: var(--text-primary); font-weight: 600;">Kompyuter asoslari</span>
+            </div>
+
+            <!-- Title & Meta Header -->
+            <div class="lesson-title-area">
+              <h2 class="lesson-main-title" id="lesson-main-title">Kompyuter asoslari</h2>
+              <div class="lesson-meta-bar" id="lesson-meta-bar">
+                Kompyuter nima, axborotni qabul qilish, qayta ishlash va saqlash jarayoni.
+              </div>
+            </div>
+
+            <!-- Dynamic Lesson Body -->
+            <div class="lesson-body-area" id="lesson-body-area">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <!-- Footer Controls -->
+            <div class="lesson-footer-nav">
+              <button class="btn btn-secondary btn-sm" id="lesson-prev-btn">
+                ← Oldingi dars
+              </button>
+              <button class="lesson-toggle-complete-btn" id="lesson-toggle-complete-btn">
+                <span>○</span> <span data-i18n="btnCompleteLesson">Darsni yakunlash</span>
+              </button>
+              <button class="btn btn-primary btn-sm" id="lesson-next-btn">
+                Keyingi dars →
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- Quizzes Section -->
+      <section class="section" id="quizzes">
+        <div class="section-header">
+          <span class="section-tag" data-i18n="navQuiz">Interaktiv Testlar</span>
+          <h2 class="section-title" data-i18n="quizTitle">Bilimingizni sinab ko'ring</h2>
+          <p class="section-desc" data-i18n="quizDesc">Har bir kurs bo'yicha interaktiv testlarni yeching va ball to'plang.</p>
+        </div>
+
+        <div class="quiz-container">
+          <!-- Quiz Course Tabs -->
+          <div class="quiz-tabs">
+            <button class="quiz-tab active" data-course="computer" data-i18n="quizCompTab">💻 Kompyuter testi</button>
+            <button class="quiz-tab" data-course="prompt" data-i18n="quizPromptTab">✨ Prompt yozish testi</button>
+          </div>
+
+          <!-- Active Question Card -->
+          <div id="quiz-active-card">
+            <div class="quiz-header-bar">
+              <span class="quiz-counter-text" id="quiz-counter-text">1 / 5</span>
+              <span class="quiz-score-badge" id="quiz-score-badge">Natija: 0</span>
+            </div>
+
+            <h3 class="quiz-question-title" id="quiz-question-title">Savol yuklanmoqda...</h3>
+
+            <div class="quiz-options-list" id="quiz-options-list">
+              <!-- Dynamically populated via JS -->
+            </div>
+
+            <div class="quiz-feedback-box" id="quiz-feedback-box"></div>
+
+            <div class="quiz-action-bar">
+              <button class="btn btn-primary" id="quiz-next-btn" style="display: none;">
+                Keyingi savol →
+              </button>
+            </div>
+          </div>
+
+          <!-- Quiz Completion Card -->
+          <div class="quiz-complete-card" id="quiz-complete-card">
+            <div class="quiz-trophy-icon">🏆</div>
+            <div class="quiz-final-score" id="quiz-final-score">5 / 5</div>
+            <p class="quiz-final-msg" id="quiz-final-msg">A’lo natija! Barcha savollarga to‘g‘ri javob berdingiz.</p>
+            <button class="btn btn-primary" id="quiz-retake-btn" data-i18n="btnRetakeQuiz">
+              Testni qayta topshirish
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- About Section -->
+      <section class="section" id="about">
+        <div class="about-card">
+          <div>
+            <span class="section-tag" data-i18n="aboutTitle">Platforma haqida</span>
+            <blockquote class="about-quote" data-i18n="aboutText">
+              "Elyor Teacher — kompyuter savodxonligi va prompt yozish ko‘nikmalarini o‘rganish uchun yaratilgan bepul ta’limiy platforma."
+            </blockquote>
+            <ul class="about-features-list">
+              <li class="about-feature-item">
+                <svg class="about-feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span data-i18n="aboutFeature1">Hech qanday ro'yxatdan o'tish yoki to'lov talab qilinmaydi</span>
+              </li>
+              <li class="about-feature-item">
+                <svg class="about-feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span data-i18n="aboutFeature2">Barcha progress brauzeringiz xotirasida xavfsiz saqlanadi</span>
+              </li>
+              <li class="about-feature-item">
+                <svg class="about-feature-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span data-i18n="aboutFeature3">Haqiqiy dasturlash, dizayn va ta'lim uchun tayyor prompt andozalari</span>
+              </li>
+            </ul>
+          </div>
+          <div class="about-side-box">
+            <h4 class="about-side-box-title">Elyor Teacher</h4>
+            <p class="about-side-box-text">Zamonaviy ta'lim, kompyuter ko'nikmalari va sun'iy intellekt vositalari bilan samarali ishlash formulalari.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer" id="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div>
+          <a class="brand-logo" href="#">
+            <div class="brand-icon-box">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+              </svg>
+            </div>
+            <span class="brand-title">Elyor Teacher</span>
+          </a>
+          <p class="footer-brand-desc" data-i18n="footerDesc">
+            Barcha uchun bepul kompyuter savodxonligi va AI vositalaridan samarali foydalanish kursi.
+          </p>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title" data-i18n="navCourses">Kurslar</h4>
+          <ul class="footer-links">
+            <li><a href="#workspace" class="footer-link" data-i18n="course1Title">Kompyuter savodxonligi</a></li>
+            <li><a href="#workspace" class="footer-link" data-i18n="course2Title">Prompt yozish</a></li>
+            <li><a href="#quizzes" class="footer-link" data-i18n="navQuiz">Interaktiv testlar</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-col-title" data-i18n="navAbout">Platforma</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link" data-i18n="navHome">Bosh sahifa</a></li>
+            <li><a href="#about" class="footer-link" data-i18n="navAbout">Haqida</a></li>
+            <li><a href="https://github.com" target="_blank" rel="noopener noreferrer" class="footer-link">GitHub Repository</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Elyor Teacher. <span data-i18n="footerRights">Barcha huquqlar himoyalangan.</span></p>
+        <p>HTML5 • CSS3 • Vanilla JavaScript • No Backend • 100% Client-Side</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="./data-courses.js"></script>
+  <script src="./script.js"></script>
+</body>
+</html>

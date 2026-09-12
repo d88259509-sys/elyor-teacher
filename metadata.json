@@ -1,0 +1,6 @@
+{
+  "name": "Elyor Teacher",
+  "description": "Kompyuter savodxonligi va zamonaviy prompt yozish ta'limiy platformasi. Bepul darslar, amaliy misollar va interaktiv testlar.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
